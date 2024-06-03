@@ -10,11 +10,9 @@ Vehicle.prototype.getInfo = function () {
     return `Транспортний засіб: ${this.make} ${this.model} ${this.year} `;
 }
 
-function Car (make, model, year, numDoors) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.numDoors = numDoors
+function Car(make, model, year, numDoors) {
+    Vehicle.call(this, make, model, year); 
+    this.numDoors = numDoors;
 }
 
 Car.prototype = Object.create(Vehicle.prototype);
@@ -26,10 +24,8 @@ Car.prototype.getNumDoors = function() {
 };
 
 function Bicycle(make, model, year, gearNumber) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.gearNumber = gearNumber
+    Vehicle.call(this, make, model, year); 
+    this.gearNumber = gearNumber;
 }
 
 Bicycle.prototype = Object.create(Vehicle.prototype);
